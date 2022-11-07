@@ -15,29 +15,29 @@ def pregunta_01():
     Complete el código presentado a continuación.
     """
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = pd.read_csv('gm_2008_region.csv')
 
     # Asigne la columna "life" a `y` y la columna "fertility" a `X`
-    y = ____[____].____
-    X = ____[____].____
+    y = df['life'].values
+    X = df['fertility'].values
 
     # Imprima las dimensiones de `y`
-    print(____.____)
+    print(y.shape)
 
     # Imprima las dimensiones de `X`
-    print(____.____)
+    print(X.shape)
 
     # Transforme `y` a un array de numpy usando reshape
-    y_reshaped = y.reshape(____, ____)
+    y_reshaped = y.reshape(-1, 1)
 
     # Trasforme `X` a un array de numpy usando reshape
-    X_reshaped = X.reshape(____, ____)
+    X_reshaped = X.reshape(-1, 1)
 
     # Imprima las nuevas dimensiones de `y`
-    print(____.____)
+    print(y.shape)
 
     # Imprima las nuevas dimensiones de `X`
-    print(____.____)
+    print(X.shape)
 
 
 def pregunta_02():
@@ -47,22 +47,22 @@ def pregunta_02():
     """
 
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = pd.read_csv('gm_2008_region.csv')
 
     # Imprima las dimensiones del DataFrame
-    print(____.____)
+    print(df.shape)
 
     # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
-    print(____)
+    print(round(np.corrcoef(life, fertility),4))
 
     # Imprima la media de la columna `life` con 4 decimales.
-    print(____)
+    print(round(np.mean(life),4))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    print(____)
+    print(type(fertility))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    print(____)
+    print(round(np.corrcoef(GDP, life),4))
 
 
 def pregunta_03():
@@ -72,10 +72,10 @@ def pregunta_03():
     """
 
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = pd.read_csv('gm_2008_region.csv')
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = ____
+    X_fertility = df['fertility']
 
     # Asigne a la variable los valores de la columna `life`
     y_life = ____
