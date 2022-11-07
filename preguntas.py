@@ -55,17 +55,20 @@ def pregunta_02():
     # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
     y = df['life'].values
     X = df['fertility'].values
-    print(df.corr(y,X).round(4))
+    y_reshaped = y.reshape(-1, 1)
+    X_reshaped = X.reshape(-1, 1)
+    print(df.corr(y_reshaped,X_reshaped).round(4))
 
     # Imprima la media de la columna `life` con 4 decimales.
-    print(df.mean(df['life'].values).round(4))
+    print(df.mean(y_reshaped).round(4))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    print(type(df['fertility'].values))
+    print(type(X_reshaped))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    
-    print(df.corr(df['GDP'].values, y).round(4))
+    GDP = df['GDP'].values
+    GDP_reshaped = GDP.reshape(-1, 1)
+    print(df.corr(GDP_reshaped, y).round(4))
 
 
 def pregunta_03():
