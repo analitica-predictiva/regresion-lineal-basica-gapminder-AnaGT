@@ -66,8 +66,8 @@ def pregunta_02():
     print(type(df['fertility']))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    print(correlation.loc(['GDP'], ['life'].round(4)))
-    
+    print(correlation.loc['GDP'],['life'].round(4))
+
 def pregunta_03():
     """
     Entrenamiento del modelo sobre todo el conjunto de datos.
