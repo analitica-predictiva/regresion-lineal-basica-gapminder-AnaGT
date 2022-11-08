@@ -53,22 +53,21 @@ def pregunta_02():
     print(df.shape)
 
     # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
-    y = df['life'].values
-    X = df['fertility'].values
-    y_reshaped = y.reshape(-1, 1)
-    X_reshaped = X.reshape(-1, 1)
-    print(df.corr(y_reshaped,X_reshaped).round(4))
+    #y = df['life'].values
+    #X = df['fertility'].values
+    correlation=df.corr()
+    print(correlation.loc['life','fertility'].round(4))
 
-    # Imprima la media de la columna `life` con 4 decimales.
-    print(df.mean(y_reshaped).round(4))
+    # Imprima la media de la columna `life` con 4 decimales
+    media= df.mean()
+    print(media.loc['life'].round(4))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    print(type(X_reshaped))
+    print(type(df['fertility']))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    GDP = df['GDP'].values
-    GDP_reshaped = GDP.reshape(-1, 1)
-    print(df.corr(GDP_reshaped, y).round(4))
+    print(correlation.loc(['GDP'], ['life'].round(4))
+
 
 
 def pregunta_03():
@@ -81,10 +80,10 @@ def pregunta_03():
     df = pd.read_csv('gm_2008_region.csv')
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df['fertility'].values
+    X_fertility = np.array(df['fertility']).reshape(-1, 1)
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df['life'].values
+    y_life = np.array(df['life']).reshape(-1, 1)
 
     # Importe LinearRegression
     from sklearn.linear_model import LinearRegression
@@ -126,10 +125,10 @@ def pregunta_04():
     df = pd.read_csv('gm_2008_region.csv')
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df['fertility'].values
+    X_fertility = np.array(df['fertility']).reshape(-1, 1)
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df['life'].values
+    y_life = np.array(df['life']).reshape(-1, 1)
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
